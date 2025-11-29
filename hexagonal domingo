@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fixture Hexagonal Open – Domingo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary: #00c853;
+      --primary-dark: #009624;
+      --bg: #f4f4f4;
+      --card-bg: #ffffff;
+      --text-main: #222222;
+      --text-muted: #666666;
+      --border-radius: 14px;
+      --shadow: 0 4px 14px rgba(0,0,0,0.08);
+      --accent: #ffb300;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #e8f5e9 0, #f4f4f4 50%, #f4f4f4 100%);
+      color: var(--text-main);
+      padding: 20px;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(0, 200, 83, 0.1);
+      color: var(--primary-dark);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      background: #ffffff;
+      border-radius: 999px;
+      padding: 6px 14px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 16px;
+      margin-bottom: 18px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .card-time {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .pairs-list {
+      list-style: none;
+      margin-top: 6px;
+    }
+
+    .pairs-list li {
+      padding: 4px 0;
+      font-size: 0.95rem;
+    }
+
+    .pairs-list span.num {
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .round {
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+    }
+
+    .matches {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .match {
+      border-radius: 12px;
+      background: #f9f9f9;
+      padding: 8px 10px;
+      font-size: 0.9rem;
+    }
+
+    .match strong {
+      display: block;
+      font-size: 0.88rem;
+      margin-bottom: 2px;
+    }
+
+    .rest {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .rules-list {
+      font-size: 0.9rem;
+      margin-left: 16px;
+      margin-top: 6px;
+    }
+
+    .rules-list li {
+      margin: 3px 0;
+    }
+
+    .highlight {
+      background: rgba(255, 179, 0, 0.1);
+      border-radius: 999px;
+      padding: 4px 10px;
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 0.85rem;
+      color: #8d6e00;
+      font-weight: 600;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .cta strong {
+      color: var(--primary-dark);
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 12px;
+      }
+      .matches {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="badge">Hexagonal Open – Quimey Pádel</div>
+      <h1>Fixture Oficial – Domingo</h1>
+      <p class="subtitle">Todos contra todos · 3 canchas · Partidos de 30 minutos</p>
+      <div class="meta">
+        <div class="pill">🕣 Inicio: <strong>08:30 hrs</strong></div>
+        <div class="pill">🎾 Formato: 6 parejas · 5 partidos c/u</div>
+        <div class="pill">📍 Quimey Pádel Low Cost</div>
+      </div>
+    </header>
+
+    <!-- Parejas -->
+    <section class="card">
+      <div class="card-header">
+        <div class="card-title">Parejas inscritas</div>
+        <div class="card-time">Hexagonal Open – Domingo</div>
+      </div>
+      <ul class="pairs-list">
+        <li><span class="num">1️⃣</span><strong>Juan Carlos – Vikingo</strong></li>
+        <li><span class="num">2️⃣</span><strong>Cristóbal – Nacho</strong></li>
+        <li><span class="num">3️⃣</span><strong>Benja – Hernán</strong></li>
+        <li><span class="num">4️⃣</span><strong>Camilo – Matías</strong></li>
+        <li><span class="num">5️⃣</span><strong>Leonardo – Gustavo</strong></li>
+        <li><span class="num">6️⃣</span><strong>Matías – Martín</strong></li>
+      </ul>
+      <p class="footer-note">
+        Cada pareja disputa <strong>5 partidos</strong> en modalidad todos contra todos.
+      </p>
+    </section>
+
+    <!-- Ronda 1 -->
+    <section class="card round">
+      <div class="card-header">
+        <div class="card-title">Ronda 1</div>
+        <div class="card-time">08:30 – 09:00 hrs</div>
+      </div>
+      <div class="matches">
+        <div class="match">
+          <strong>Cancha 1</strong>
+          1️⃣ Juan Carlos – Vikingo<br>
+          vs<br>
+          6️⃣ Matías – Martín
+        </div>
+        <div class="match">
+          <strong>Cancha 2</strong>
+          2️⃣ Cristóbal – Nacho<br>
+          vs<br>
+          5️⃣ Leonardo – Gustavo
+        </div>
+        <div class="match">
+          <strong>Cancha 3</strong>
+          3️⃣ Benja – Hernán<br>
+          vs<br>
+          4️⃣ Camilo – Matías
+        </div>
+      </div>
+      <div class="rest">Descansan: — Ninguna pareja (juegan las 6)</div>
+    </section>
+
+    <!-- Ronda 2 -->
+    <section class="card round">
+      <div class="card-header">
+        <div class="card-title">Ronda 2</div>
+        <div class="card-time">09:00 – 09:30 hrs</div>
+      </div>
+      <div class="matches">
+        <div class="match">
+          <strong>Cancha 1</strong>
+          1️⃣ Juan Carlos – Vikingo<br>
+          vs<br>
+          5️⃣ Leonardo – Gustavo
+        </div>
+        <div class="match">
+          <strong>Cancha 2</strong>
+          6️⃣ Matías – Martín<br>
+          vs<br>
+          4️⃣ Camilo – Matías
+        </div>
+        <div class="match">
+          <strong>Cancha 3</strong>
+          2️⃣ Cristóbal – Nacho<br>
+          vs<br>
+          3️⃣ Benja – Hernán
+        </div>
+      </div>
+      <div class="rest">Descansan: — Ninguna pareja</div>
+    </section>
+
+    <!-- Ronda 3 -->
+    <section class="card round">
+      <div class="card-header">
+        <div class="card-title">Ronda 3</div>
+        <div class="card-time">09:30 – 10:00 hrs</div>
+      </div>
+      <div class="matches">
+        <div class="match">
+          <strong>Cancha 1</strong>
+          1️⃣ Juan Carlos – Vikingo<br>
+          vs<br>
+          4️⃣ Camilo – Matías
+        </div>
+        <div class="match">
+          <strong>Cancha 2</strong>
+          5️⃣ Leonardo – Gustavo<br>
+          vs<br>
+          3️⃣ Benja – Hernán
+        </div>
+        <div class="match">
+          <strong>Cancha 3</strong>
+          6️⃣ Matías – Martín<br>
+          vs<br>
+          2️⃣ Cristóbal – Nacho
+        </div>
+      </div>
+      <div class="rest">Descansan: — Ninguna pareja</div>
+    </section>
+
+    <!-- Ronda 4 -->
+    <section class="card round">
+      <div class="card-header">
+        <div class="card-title">Ronda 4</div>
+        <div class="card-time">10:00 – 10:30 hrs</div>
+      </div>
+      <div class="matches">
+        <div class="match">
+          <strong>Cancha 1</strong>
+          1️⃣ Juan Carlos – Vikingo<br>
+          vs<br>
+          3️⃣ Benja – Hernán
+        </div>
+        <div class="match">
+          <strong>Cancha 2</strong>
+          4️⃣ Camilo – Matías<br>
+          vs<br>
+          2️⃣ Cristóbal – Nacho
+        </div>
+        <div class="match">
+          <strong>Cancha 3</strong>
+          5️⃣ Leonardo – Gustavo<br>
+          vs<br>
+          6️⃣ Matías – Martín
+        </div>
+      </div>
+      <div class="rest">Descansan: — Ninguna pareja</div>
+    </section>
+
+    <!-- Ronda 5 -->
+    <section class="card round">
+      <div class="card-header">
+        <div class="card-title">Ronda 5</div>
+        <div class="card-time">10:30 – 11:00 hrs</div>
+      </div>
+      <div class="matches">
+        <div class="match">
+          <strong>Cancha 1</strong>
+          1️⃣ Juan Carlos – Vikingo<br>
+          vs<br>
+          2️⃣ Cristóbal – Nacho
+        </div>
+        <div class="match">
+          <strong>Cancha 2</strong>
+          3️⃣ Benja – Hernán<br>
+          vs<br>
+          6️⃣ Matías – Martín
+        </div>
+        <div class="match">
+          <strong>Cancha 3</strong>
+          4️⃣ Camilo – Matías<br>
+          vs<br>
+          5️⃣ Leonardo – Gustavo
+        </div>
+      </div>
+      <div class="rest">Descansan: — Ninguna pareja</div>
+    </section>
+
+    <!-- Reglas -->
+    <section class="card">
+      <div class="card-header">
+        <div class="card-title">Formato competitivo</div>
+      </div>
+      <ul class="rules-list">
+        <li>Cada pareja juega <strong>5 partidos</strong> (todos contra todos).</li>
+        <li>No se repiten enfrentamientos.</li>
+        <li>No hay descansos: siempre juegan las 6 parejas.</li>
+        <li><strong>Puntaje sugerido:</strong> Victoria = 3 pts, Empate = 1 pt, Derrota = 0 pts.</li>
+        <li>Desempate: diferencia de games, luego games a favor, luego resultado entre sí.</li>
+      </ul>
+      <p class="cta">
+        <span class="highlight">No te quedes fuera: escríbenos y te anotamos de inmediato en el Hexagonal Open.</span>
+      </p>
+    </section>
+  </div>
+</body>
+</html>
